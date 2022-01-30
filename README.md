@@ -1,2 +1,1 @@
-# optreg
-TTK4135 - Optimization and Control
+# TTK4135 - Optimization and Control
