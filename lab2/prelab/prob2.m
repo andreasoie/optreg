@@ -44,13 +44,13 @@ vub(N*mx+M*mu)  = 0;                    % We want the last input to be zero
 % Generate the matrix Q and the vector c (objecitve function weights in the QP problem) 
 
 % Try different q values: 0.1, 1, 10, ...
-q_value = 10;
+q_value = 1;
 Q1 = zeros(mx,mx);
-Q1(1,1) = q_value;                            % Weight on state x1
-Q1(2,2) = q_value;                            % Weight on state x2
-Q1(3,3) = q_value;                            % Weight on state x3
-Q1(4,4) = q_value;                            % Weight on state x4
-P1 = 0;                                       % Weight on input
+Q1(1,1) = 2;                            % Weight on state x1
+Q1(2,2) = 0;                            % Weight on state x2
+Q1(3,3) = 0;                            % Weight on state x3
+Q1(4,4) = 0;                            % Weight on state x4
+P1 = 0.1;                                       % Weight on input
 Q = gen_q(Q1,P1,N,M);                                  % Generate Q, hint: gen_q
 c = zeros(N*mx+M*mu, 1);                                  % Generate c, this is the linear constant term in the QP
 
@@ -94,6 +94,8 @@ x4  = [zero_padding; x4; zero_padding];
 
 %% Plotting
 t = 0:delta_t:delta_t*(length(u)-1);
+
+uref = timeseries(u,t)
 
 figure(2)
 subplot(511)
