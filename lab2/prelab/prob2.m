@@ -50,9 +50,9 @@ Q1(1,1) = 2;                            % Weight on state x1
 Q1(2,2) = 0;                            % Weight on state x2
 Q1(3,3) = 0;                            % Weight on state x3
 Q1(4,4) = 0;                            % Weight on state x4
-P1 = 0.1;                                       % Weight on input
+P1 = 1;                                       % Weight on input
 Q = gen_q(Q1,P1,N,M);                                  % Generate Q, hint: gen_q
-c = zeros(N*mx+M*mu, 1);                                  % Generate c, this is the linear constant term in the QP
+c = zeros(N*mx+M*mu, 1);                                % Generate c, this is the linear constant term in the QP
 
 %% Generate system matrixes for linear model
 Aeq = gen_aeq(A1, B1, N, mx, mu);             % Generate A, hint: gen_aeq
@@ -95,21 +95,27 @@ x4  = [zero_padding; x4; zero_padding];
 %% Plotting
 t = 0:delta_t:delta_t*(length(u)-1);
 
-uref = timeseries(u,t)
+uref = timeseries(u,t);
 
 figure(2)
 subplot(511)
 stairs(t,u),grid
-ylabel('u')
+ylabel("u")
 subplot(512)
-plot(t,x1,'m',t,x1,'mo'),grid
-ylabel('lambda')
+plot(t,x1,"m",t,x1, ".")
+grid
+ylabel("lambda")
 subplot(513)
-plot(t,x2,'m',t,x2','mo'),grid
-ylabel('r')
+plot(t,x2,"m",t,transpose(x2), ".")
+grid
+ylabel("r")
 subplot(514)
-plot(t,x3,'m',t,x3,'mo'),grid
-ylabel('p')
+plot(t,x3,"m",t,x3, ".")
+grid
+ylabel("p")
 subplot(515)
-plot(t,x4,'m',t,x4','mo'),grid
-xlabel('tid (s)'),ylabel('pdot')
+plot(t,x4,"m",t,transpose(x4),".")
+grid
+xlabel("tid (s)")
+ylabel("pdot")
+
