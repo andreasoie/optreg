@@ -1,1 +1,0 @@
-10.3 Optimal Control of PitchTravel with Feedback (LQ)
