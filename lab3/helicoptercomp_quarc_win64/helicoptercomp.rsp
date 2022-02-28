@@ -1,0 +1,7 @@
+helicoptercomp.obj
+helicoptercomp_data.obj
+helicoptercomp_main.obj
+rtGetInf.obj
+rtGetNaN.obj
+rt_nonfinite.obj
+rt_sim.obj

@@ -118,8 +118,13 @@ t = 0:delta_t:delta_t*(length(u)-1);
 % ylabel("pdot")
 
 % LQ Controller
-Q1 = diag([1 1 1 1]); % eye(4)
-R1 = 1;
+q_travel = 150;
+q_dtravel = 10;
+q_pitch = 1;
+q_dpitch = 10;
+r1 = 1;
+Q1 = diag([q_travel q_dtravel q_pitch q_dpitch]); % eye(4)
+R1 = r1;
 
 % Calculates the optimal gain matrix K for state-space
 [K_opt, S, CLP] = dlqr(A1, B1, Q1, R1);
