@@ -1,1 +1,0 @@
-10.4 Optimal Control of PitchTravel and Elevation with Feedback
