@@ -12,10 +12,10 @@
 
 - [ ] **Day 3**: Optimal control of pitch/travel with feedback (LQ control).
 	- [x] Prelab
-	- [ ] Lab
+	- [x] Lab
 
 - [ ] **Day 4**: Optimal control of pitch/travel and elevation with feedback (2D)
-	- [ ] Prelab
+	- [x] Prelab
 	- [ ] Lab
 	
 - [ ] Deliver report: deadline **11.04.2022** 12:00 (noon)
