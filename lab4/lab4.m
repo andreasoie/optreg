@@ -138,76 +138,75 @@ t1 = 0:DELTA_T:DELTA_T*(length(u1)-1);
 t2 = 0:DELTA_T:DELTA_T*(length(u2)-1);
 assert(size(t1, 2) == size(t1, 2), 'DimentionException')
 
-figure(1337)
-
-subplot(811)
-stairs(t1, u1, "LineWidth", 2)
-grid
-xlabel("time (s)")
-ylabel("radians (rad)")
-title("Input: Pitch")
-
-subplot(812)
-stairs(t2, u2, "LineWidth", 2)
-grid
-xlabel("time (s)")
-ylabel("radians (rad)")
-title("Input: Elevation")
-
-subplot(813)
-plot(t1, x1,"m", t1, x1, "*", "LineWidth", 2)
-grid
-xlabel("time (s)")
-ylabel("radians (rad)")
-title("Travel")
-
-subplot(814)
-plot(t1, x2, "m", t1, transpose(x2), "*", "LineWidth", 2)
-grid
-xlabel("time (s)")
-ylabel("radians (rad)")
-title("Travel Rate")
-
-subplot(815)
-plot(t1, x3, "m", t1, transpose(x3), "*", "LineWidth", 2)
-grid
-xlabel("time (s)")
-ylabel("radians (rad)")
-title("Pitch")
-
-subplot(816)
-plot(t1, x4,"m", t1, transpose(x4),"*", "LineWidth", 2)
-grid
-xlabel("time (s)")
-ylabel("radians (rad)")
-title("Pitch Rate")
-
-subplot(817)
-plot(t1, x5, "m", t1, transpose(x5),"*", "LineWidth", 2)
-grid
-xlabel("time (s)")
-ylabel("radians (rad)")
-title("Elevation")
-
-subplot(818)
-plot(t1, x6, "m", t1, transpose(x6),"*", "LineWidth", 2)
-grid
-xlabel("time (s)")
-ylabel("radians (rad)")
-title("Elevation Rate")
+% figure(1337)
+% 
+% subplot(811)
+% stairs(t1, u1, "LineWidth", 2)
+% grid
+% xlabel("time (s)")
+% ylabel("radians (rad)")
+% title("Input: Pitch")
+% 
+% subplot(812)
+% stairs(t2, u2, "LineWidth", 2)
+% grid
+% xlabel("time (s)")
+% ylabel("radians (rad)")
+% title("Input: Elevation")
+% 
+% subplot(813)
+% plot(t1, x1,"m", t1, x1, "*", "LineWidth", 2)
+% grid
+% xlabel("time (s)")
+% ylabel("radians (rad)")
+% title("Travel")
+% 
+% subplot(814)
+% plot(t1, x2, "m", t1, transpose(x2), "*", "LineWidth", 2)
+% grid
+% xlabel("time (s)")
+% ylabel("radians (rad)")
+% title("Travel Rate")
+% 
+% subplot(815)
+% plot(t1, x3, "m", t1, transpose(x3), "*", "LineWidth", 2)
+% grid
+% xlabel("time (s)")
+% ylabel("radians (rad)")
+% title("Pitch")
+% 
+% subplot(816)
+% plot(t1, x4,"m", t1, transpose(x4),"*", "LineWidth", 2)
+% grid
+% xlabel("time (s)")
+% ylabel("radians (rad)")
+% title("Pitch Rate")
+% 
+% subplot(817)
+% plot(t1, x5, "m", t1, transpose(x5),"*", "LineWidth", 2)
+% grid
+% xlabel("time (s)")
+% ylabel("radians (rad)")
+% title("Elevation")
+% 
+% subplot(818)
+% plot(t1, x6, "m", t1, transpose(x6),"*", "LineWidth", 2)
+% grid
+% xlabel("time (s)")
+% ylabel("radians (rad)")
+% title("Elevation Rate")
 
 %% LQ Controller
 
-q_travel = 1;
+q_travel = 150;
 q_travel_dot = 1;
-q_pitch = 1;
-q_pitch_dot = 1;
-q_elevation = 1;
-q_elevation_dot = 1;
+q_pitch = 0.1;
+q_pitch_dot = 15;
+q_elevation = 10;
+q_elevation_dot = 20;
 
-r_pitch = 1;
-r_elevation = 1;
-
+r_pitch = 0.1;
+r_elevation = 0.1;
 
 Q1 = diag([q_travel q_travel_dot q_pitch q_pitch_dot q_elevation q_elevation_dot]); 
 R1 = diag([r_pitch r_elevation]);
