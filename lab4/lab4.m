@@ -214,13 +214,7 @@ R1 = diag([r_pitch r_elevation]);
 % Calculates the optimal gain matrix K for state-space
 [K_opt, S, CLP] = dlqr(A1, B1, Q1, R1);
 
-% Save stuff for Simulink aswell as plotting options
-
-% Pitch
-Up_opt= timeseries(u1, t1); 
-% Elevation
-Ue_opt= timeseries(u2, t2); 
-
+Up_opt= timeseries(u1, t1);  % Pitch
+Ue_opt= timeseries(u2, t2);  % Elevation
 X_opt = timeseries([x1 x2 x3 x4 x5 x6], t1);
-
 T_opt = t1;
